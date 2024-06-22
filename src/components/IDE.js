@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 import TextEditor from './TextEditor';
 import NoteMaker from './NoteMaker';
+import ListMaker from './ListMaker';
+import ReadmePreview from './ReadmePreview';
 
 const IDE = () => {
     const [folders, setFolders] = useState([]);
@@ -23,7 +25,7 @@ const IDE = () => {
             id: files.length + 1,
             name: `New File ${files.length + 1}.${extension}`,
             type: extension,
-            content: ''
+            content: extension === 'lt' ? [] : '' // Initialize content based on file type
         };
         setFiles([...files, newFile]);
     };
@@ -42,12 +44,14 @@ const IDE = () => {
                 onFileSelect={handleFileSelect}
             />
             <div className="editor">
-                {selectedFile &&
-                    (selectedFile.type === 'ed' ? (
-                        <TextEditor file={selectedFile} />
-                    ) : selectedFile.type === 'note' ? (
-                        <NoteMaker file={selectedFile} />
-                    ) : null)}
+                {selectedFile && (
+                    {
+                        'ed': <TextEditor file={selectedFile} />,
+                        'note': <NoteMaker file={selectedFile} />,
+                        'lt': <ListMaker file={selectedFile} />,
+                        'readme': <ReadmePreview file={selectedFile} />
+                    }[selectedFile.type] || null
+                )}
             </div>
         </div>
     );

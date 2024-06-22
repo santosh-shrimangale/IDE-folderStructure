@@ -18,6 +18,8 @@ const Sidebar = ({ folders, files, onFolderCreate, onFileCreate, onFileSelect })
             <button onClick={onFolderCreate}>New Folder</button>
             <button onClick={() => onFileCreate('ed')}>New .ed File</button>
             <button onClick={() => onFileCreate('note')}>New .note File</button>
+            <button onClick={() => onFileCreate('lt')}>New .lt File</button>
+            <button onClick={() => onFileCreate('readme')}>New .readme File</button>
         </div>
     );
 };

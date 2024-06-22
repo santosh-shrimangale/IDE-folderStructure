@@ -131,3 +131,30 @@
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
+/*  */
+.list-maker {
+  padding: 10px;
+}
+
+.list-maker ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list-maker li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.list-maker input {
+  flex: 1;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.readme-preview {
+  padding: 10px;
+  background-color: #f4f4f4;
+  border-radius: 4px;
+}
