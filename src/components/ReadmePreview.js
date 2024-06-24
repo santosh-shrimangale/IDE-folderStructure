@@ -6,6 +6,7 @@ const ReadmePreview = ({ file }) => {
 
     return (
         <div className="readme-preview">
+        <div># IDE-folderStructure</div>
             <ReactMarkdown>{content}</ReactMarkdown>
         </div>
     );

@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 
 const ListMaker = ({ file }) => {
-    const [items, setItems] = useState(file.content || []);
+console.log(file)
+
+    const [items, setItems] = useState( [{
+        id: `item-${0}`,
+        content: ''
+    }]);
+
+    // console.log(items)
 
     const handleItemAdd = () => {
         const newItem = {
@@ -19,13 +26,14 @@ const ListMaker = ({ file }) => {
     };
 
     const handleItemDelete = (itemId) => {
+
         const updatedItems = items.filter(item => item.id !== itemId);
         setItems(updatedItems);
     };
 
     return (
         <div className="list-maker">
-            <button onClick={handleItemAdd}>Add Item</button>
+            <button className='addNoteBtn' onClick={handleItemAdd}>Add Item</button>
             <ul>
                 {items.map(item => (
                     <li key={item.id}>
@@ -34,7 +42,7 @@ const ListMaker = ({ file }) => {
                             value={item.content}
                             onChange={(e) => handleItemChange(item.id, e.target.value)}
                         />
-                        <button onClick={() => handleItemDelete(item.id)}>Delete</button>
+                        <button className='deleteNote' onClick={() => handleItemDelete(item.id)}>Delete</button>
                     </li>
                 ))}
             </ul>

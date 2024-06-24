@@ -47,13 +47,13 @@ const NoteMaker = ({ file = { notes: [] } }) => {
 
     return (
         <div className="note-maker">
-            <button onClick={handleNoteAdd}>Add Note</button>
+            <p className='addNoteBtn' onClick={handleNoteAdd}>Add Note</p>
             <DragDropContext onDragEnd={onDragEnd}>
                 {['To Do', 'In Progress', 'Done'].map(category => (
                     <Droppable key={category} droppableId={category}>
                         {(provided) => (
                             <div
-                                className="note-category"
+                                className="note-category note-category-container"
                                 {...provided.droppableProps}
                                 ref={provided.innerRef}
                             >

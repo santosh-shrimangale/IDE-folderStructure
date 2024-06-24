@@ -42,6 +42,7 @@ const IDE = () => {
                 onFolderCreate={handleFolderCreate}
                 onFileCreate={handleFileCreate}
                 onFileSelect={handleFileSelect}
+                setFolders={setFolders}
             />
             <div className="editor">
                 {selectedFile && (
